@@ -1,0 +1,7 @@
+POST http://localhost:5678/webhook/assistente-pessoal
+Content-Type: application/json
+
+{
+  "chatId": "123456",
+  "mensagem": "Bom dia! Você trabalha com Rust?"
+}
