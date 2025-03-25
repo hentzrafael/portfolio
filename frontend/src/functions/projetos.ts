@@ -2,7 +2,7 @@ import { Projeto, Tipo } from "@core/projeto";
 import { httpGet } from "./api";
 
 export async function getProjetos() {
-	const projetos = await httpGet("/projetos");
+	const projetos = await httpGet("projetos");
 	return {
 		todos: projetos,
 		get mobile() {
