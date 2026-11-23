@@ -5,6 +5,9 @@ export const metadata: Metadata = {
 	title: "Rafael Hentz — Sites e produtos digitais sob medida",
 	description: "Desenvolvimento de sites, aplicações e sistemas digitais com Rafael Hentz.",
 	metadataBase: new URL("https://hentzrafael.com"),
+	alternates: {
+		canonical: "/",
+	},
 	openGraph: {
 		title: "Rafael Hentz — Sites e produtos digitais sob medida",
 		description: "Sites e produtos digitais feitos para o jeito que sua empresa trabalha.",

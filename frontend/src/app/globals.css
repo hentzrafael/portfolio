@@ -3,7 +3,7 @@
 
 :root {
 	--ink: #192522;
-	--muted: #65716c;
+	--muted: #515d56;
 	--paper: #f7f8f4;
 	--white: #fff;
 	--line: #e2e7df;
@@ -30,6 +30,20 @@ body {
 a {
 	color: inherit;
 	text-decoration: none;
+}
+.skip-link {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	z-index: 30;
+	transform: translateY(-150%);
+	padding: 12px 16px;
+	background: #fff;
+	color: var(--ink);
+	border: 2px solid var(--ink);
+}
+.skip-link:focus {
+	transform: translateY(0);
 }
 .section-wrap {
 	width: min(1160px, calc(100% - 80px));
@@ -81,7 +95,7 @@ a {
 }
 .nav a,
 .nav-cta {
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 600;
 	color: #46534d;
 	transition: color 0.2s;
@@ -117,7 +131,7 @@ a {
 .eyebrow {
 	font: 500 9px/1.5 var(--mono);
 	letter-spacing: 1.45px;
-	color: #738079;
+	color: #515d56;
 	display: flex;
 	align-items: center;
 	gap: 9px;
@@ -149,7 +163,7 @@ p {
 	color: #648936;
 }
 .hero-lede {
-	font-size: 15px;
+	font-size: 16px;
 	line-height: 1.8;
 	color: var(--muted);
 	max-width: 445px;
@@ -161,7 +175,7 @@ p {
 	gap: 25px;
 }
 .button {
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 600;
 	display: inline-flex;
 	align-items: center;
@@ -186,7 +200,7 @@ p {
 	display: inline-flex;
 	align-items: center;
 	gap: 9px;
-	font-size: 11px;
+	font-size: 14px;
 	font-weight: 600;
 	border-bottom: 1px solid #b4beb5;
 	padding: 6px 0;
@@ -195,8 +209,8 @@ p {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	color: #7a857f;
-	font-size: 10px;
+	color: #515d56;
+	font-size: 14px;
 	margin-top: 43px;
 }
 .note-line {
@@ -207,6 +221,7 @@ p {
 .hero-art {
 	height: 450px;
 	position: relative;
+	overflow: clip;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -533,7 +548,7 @@ p {
 }
 .section-heading > p {
 	max-width: 340px;
-	font-size: 12px;
+	font-size: 16px;
 	line-height: 1.75;
 	color: var(--muted);
 	margin: 0 0 2px;
@@ -749,9 +764,9 @@ p {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 19px;
-	font: 7px var(--mono);
+	font: 12px var(--mono);
 	letter-spacing: 1px;
-	color: #8b978f;
+	color: #515d56;
 }
 .project-card h3 {
 	font: 600 17px var(--display);
@@ -759,9 +774,9 @@ p {
 	margin: 10px 0 7px;
 }
 .project-card > p {
-	font-size: 11px;
+	font-size: 16px;
 	line-height: 1.7;
-	color: #748078;
+	color: #515d56;
 	min-height: 58px;
 	margin-bottom: 14px;
 }
@@ -775,12 +790,13 @@ p {
 	background: #eef1ea;
 	border: 1px solid #e6eae2;
 	border-radius: 2px;
-	color: #6d796f;
-	font: 7px var(--mono);
+	color: #4d5952;
+	font: 12px var(--mono);
 }
 .project-disclaimer {
-	font-size: 9px;
-	color: #8a948d;
+	font-size: 14px;
+	line-height: 1.6;
+	color: #515d56;
 	margin: 28px 0 0;
 }
 .services-section {
@@ -807,8 +823,8 @@ p {
 	gap: 13px;
 }
 .service-number {
-	font: 8px var(--mono);
-	color: #89948d;
+	font: 12px var(--mono);
+	color: #515d56;
 }
 .service-icon {
 	width: 34px;
@@ -820,14 +836,14 @@ p {
 	color: #6a8c49;
 }
 .service-row h3 {
-	font: 600 13px var(--display);
+	font: 600 16px var(--display);
 	margin: 0;
 	letter-spacing: -0.2px;
 }
 .service-row p {
-	font-size: 10px;
+	font-size: 16px;
 	line-height: 1.6;
-	color: #78847c;
+	color: #4d5952;
 	max-width: 355px;
 	margin: 0;
 }
@@ -849,7 +865,7 @@ p {
 .process-intro > p {
 	max-width: 355px;
 	color: var(--muted);
-	font-size: 12px;
+	font-size: 16px;
 	line-height: 1.8;
 	margin: 18px 0 24px;
 }
@@ -863,7 +879,7 @@ p {
 	min-height: 74px;
 }
 .step-index {
-	font: 8px var(--mono);
+	font: 12px var(--mono);
 	color: #97a198;
 	padding-top: 3px;
 }
@@ -889,12 +905,12 @@ p {
 	margin-top: 3px;
 }
 .step-content h3 {
-	font: 600 12px var(--display);
+	font: 600 16px var(--display);
 	margin: 0 0 5px;
 }
 .step-content p {
-	font-size: 10px;
-	color: #7a867e;
+	font-size: 16px;
+	color: #515d56;
 	line-height: 1.6;
 	margin: 0;
 	max-width: 400px;
@@ -995,8 +1011,8 @@ p {
 }
 .about-copy > p {
 	max-width: 475px;
-	color: #c3ccc4;
-	font-size: 12px;
+	color: #e0e7df;
+	font-size: 16px;
 	line-height: 1.9;
 	margin-bottom: 14px;
 }
@@ -1011,7 +1027,7 @@ p {
 	gap: 8px;
 	padding-bottom: 7px;
 	border-bottom: 1px solid #53675d;
-	font-size: 10px;
+	font-size: 14px;
 	color: #e2e8df;
 }
 .about-links a svg:last-child {
@@ -1043,7 +1059,7 @@ p {
 	padding: 56px 65px;
 }
 .contact .eyebrow {
-	color: #526a42;
+	color: #35452e;
 }
 .contact h2 {
 	position: relative;
@@ -1059,8 +1075,8 @@ p {
 .contact-grid > p {
 	position: relative;
 	z-index: 1;
-	color: #617456;
-	font-size: 11px;
+	color: #35452e;
+	font-size: 16px;
 	line-height: 1.7;
 	max-width: 420px;
 	margin-bottom: 20px;
@@ -1107,18 +1123,18 @@ p {
 	gap: 18px;
 }
 .footer > span {
-	font-size: 9px;
-	color: #89948c;
+	font-size: 14px;
+	color: #515d56;
 }
 .footer-links {
 	display: flex;
 	gap: 17px;
-	font-size: 9px;
-	color: #66736a;
+	font-size: 14px;
+	color: #515d56;
 }
 .footer small {
-	font: 8px var(--mono);
-	color: #939d96;
+	font: 12px var(--mono);
+	color: #515d56;
 }
 @media (max-width: 900px) {
 	.section-wrap {
@@ -1132,7 +1148,7 @@ p {
 		margin-right: 21px;
 	}
 	.nav a {
-		font-size: 10px;
+		font-size: 13px;
 	}
 	.hero {
 		gap: 10px;
@@ -1205,7 +1221,7 @@ p {
 		margin: 18px 0 14px;
 	}
 	.hero-lede {
-		font-size: 13px;
+		font-size: 16px;
 		line-height: 1.75;
 		max-width: 420px;
 	}
@@ -1275,7 +1291,7 @@ p {
 	}
 	.section-heading > p {
 		margin-top: 15px;
-		font-size: 11px;
+		font-size: 16px;
 	}
 	.project-grid {
 		grid-template-columns: 1fr;
@@ -1309,12 +1325,12 @@ p {
 		height: 30px;
 	}
 	.service-row h3 {
-		font-size: 11px;
+		font-size: 16px;
 	}
 	.service-row p {
 		grid-column: 3/4;
 		grid-row: 2;
-		font-size: 9px;
+		font-size: 16px;
 		margin-top: -7px;
 	}
 	.service-arrow {
@@ -1330,7 +1346,7 @@ p {
 		margin-bottom: 39px;
 	}
 	.process-intro > p {
-		font-size: 11px;
+		font-size: 16px;
 	}
 	.process-step {
 		grid-template-columns: 24px 19px 1fr;
@@ -1338,7 +1354,7 @@ p {
 		min-height: 88px;
 	}
 	.step-content p {
-		font-size: 9px;
+		font-size: 16px;
 	}
 	.about {
 		padding-top: 73px;
@@ -1370,7 +1386,7 @@ p {
 		font-size: 75px;
 	}
 	.about-copy > p {
-		font-size: 11px;
+		font-size: 16px;
 	}
 	.contact {
 		padding-top: 55px;
@@ -1385,7 +1401,7 @@ p {
 		max-width: 340px;
 	}
 	.contact-grid > p {
-		font-size: 10px;
+		font-size: 16px;
 		max-width: 315px;
 	}
 	.contact-orbit {
@@ -1412,7 +1428,7 @@ p {
 		gap: 19px;
 	}
 	.footer > span {
-		font-size: 8px;
+		font-size: 12px;
 		text-align: right;
 	}
 	.footer-links {
@@ -1424,7 +1440,46 @@ p {
 		grid-column: 2;
 		grid-row: 2;
 		text-align: right;
+		font-size: 11px;
+	}
+}
+@media (max-width: 380px) {
+	.hero-art {
+		transform: scale(0.73);
+	}
+	.topbar {
+		padding: 0 12px;
+	}
+	.brand {
+		gap: 7px;
+	}
+	.brand-mark {
+		font-size: 29px;
+	}
+	.brand-name {
+		font-size: 9px;
+		letter-spacing: 0.7px;
+	}
+	.brand-name i {
 		font-size: 7px;
+		letter-spacing: 0.3px;
+	}
+	.nav-cta {
+		margin-right: 7px;
+		padding: 10px 8px;
+		font-size: 11px;
+		gap: 4px;
+	}
+	.mobile-menu summary {
+		width: 40px;
+		height: 44px;
+	}
+	.trust-strip {
+		padding-right: 16px;
+		padding-left: 16px;
+	}
+	.strip-stack {
+		font-size: 8px;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1443,7 +1498,7 @@ p {
 	align-items: center;
 	gap: 5px;
 	margin-top: 15px;
-	font-size: 9px;
+	font-size: 16px;
 	font-weight: 600;
 	color: #55733e;
 }
@@ -1456,6 +1511,10 @@ p {
 .mobile-menu summary {
 	list-style: none;
 	cursor: pointer;
+	width: 44px;
+	height: 44px;
+	display: grid;
+	place-items: center;
 }
 .mobile-menu summary::-webkit-details-marker {
 	display: none;
@@ -1475,7 +1534,7 @@ p {
 }
 .mobile-nav-panel a {
 	padding: 11px 12px;
-	font-size: 11px;
+	font-size: 16px;
 	color: #46534d;
 	border-radius: 3px;
 }

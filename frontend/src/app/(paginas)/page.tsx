@@ -93,7 +93,8 @@ const steps = [
 
 export default function Home() {
 	return (
-		<main>
+		<>
+			<a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
 			<header className="topbar">
 				<a className="brand" href="#inicio" aria-label="Hentz, início">
 					<span className="brand-mark">
@@ -113,7 +114,7 @@ export default function Home() {
 					Vamos conversar <ArrowUpRight size={15} />
 				</a>
 				<details className="mobile-menu">
-					<summary aria-label="Abrir menu">
+					<summary aria-label="Menu">
 						<Menu />
 					</summary>
 					<nav className="mobile-nav-panel">
@@ -125,7 +126,7 @@ export default function Home() {
 					</nav>
 				</details>
 			</header>
-
+			<main id="conteudo">
 			<section className="hero section-wrap" id="inicio">
 				<div className="hero-copy">
 					<div className="eyebrow">
@@ -153,7 +154,7 @@ export default function Home() {
 						publicação.
 					</div>
 				</div>
-				<div className="hero-art" aria-label="Ilustração de uma página web responsiva">
+				<div className="hero-art" aria-hidden="true">
 					<div className="art-orbit orbit-one" />
 					<div className="art-orbit orbit-two" />
 					<div className="art-glow" />
@@ -257,7 +258,10 @@ export default function Home() {
 				<div className="project-grid">
 					{projects.map((project) => (
 						<article className="project-card" key={project.number}>
-							<div className={`project-visual ${project.visual}`}>
+							<div
+								className={`project-visual ${project.visual}`}
+								aria-hidden="true"
+							>
 								<div className="project-visual-top">
 									<span>{project.kind}</span>
 									<span>VISUAL ILUSTRATIVO</span>
@@ -415,7 +419,7 @@ export default function Home() {
 
 			<section className="about-section" id="sobre">
 				<div className="about section-wrap">
-					<div className="about-visual">
+					<div className="about-visual" aria-hidden="true">
 						<div className="portrait-frame">
 							<div className="portrait-sun" />
 							<div className="portrait-letters">
@@ -494,7 +498,7 @@ export default function Home() {
 					<span className="contact-star">✳</span>
 				</div>
 			</section>
-
+			</main>
 			<footer className="footer">
 				<a className="brand footer-brand" href="#inicio">
 					<span className="brand-mark">
@@ -520,6 +524,6 @@ export default function Home() {
 				</div>
 				<small>© {new Date().getFullYear()} Hentz Serviços de TI</small>
 			</footer>
-		</main>
+		</>
 	);
 }
