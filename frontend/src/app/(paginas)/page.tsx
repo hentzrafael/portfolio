@@ -2,17 +2,14 @@ import {
 	ArrowDown,
 	ArrowRight,
 	ArrowUpRight,
-	Braces,
 	Check,
 	Github,
-	Globe2,
-	Layers3,
 	Linkedin,
-	Menu,
-	MonitorSmartphone,
-	Workflow,
+	MessageCircle,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { services, whatsappHref } from "@/lib/services";
 
 const projects = [
 	{
@@ -50,39 +47,6 @@ const projects = [
 	},
 ];
 
-const services = [
-	{
-		icon: Globe2,
-		title: "Criação de sites",
-		description:
-			"Sites institucionais e landing pages que explicam bem o que você faz e facilitam o próximo passo.",
-	},
-	{
-		icon: Layers3,
-		title: "Aplicações web",
-		description:
-			"Portais, painéis e ferramentas sob medida para simplificar processos e dar forma a novas ideias.",
-	},
-	{
-		icon: MonitorSmartphone,
-		title: "Aplicativos mobile",
-		description:
-			"Aplicativos para iOS e Android, de produtos novos à evolução de experiências que já existem.",
-	},
-	{
-		icon: Workflow,
-		title: "APIs e integrações",
-		description:
-			"Sistemas e serviços conectados para que dados e tarefas fluam com menos trabalho manual.",
-	},
-	{
-		icon: Braces,
-		title: "Cloud e evolução",
-		description:
-			"Deploy, manutenção e consultoria técnica para manter seu produto confiável conforme ele cresce.",
-	},
-];
-
 const steps = [
 	"Entendimento",
 	"Proposta e escopo",
@@ -94,38 +58,7 @@ const steps = [
 export default function Home() {
 	return (
 		<>
-			<a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
-			<header className="topbar">
-				<a className="brand" href="#inicio" aria-label="Hentz, início">
-					<span className="brand-mark">
-						h<span>.</span>
-					</span>
-					<span className="brand-name">
-						HENTZ <i>SERVIÇOS DE TI</i>
-					</span>
-				</a>
-				<nav className="nav">
-					<a href="#projetos">Projetos</a>
-					<a href="#servicos">Serviços</a>
-					<a href="#processo">Como funciona</a>
-					<a href="#sobre">Sobre</a>
-				</nav>
-				<a className="nav-cta" href="#contato">
-					Vamos conversar <ArrowUpRight size={15} />
-				</a>
-				<details className="mobile-menu">
-					<summary aria-label="Menu">
-						<Menu />
-					</summary>
-					<nav className="mobile-nav-panel">
-						<a href="#projetos">Projetos</a>
-						<a href="#servicos">Serviços</a>
-						<a href="#processo">Como funciona</a>
-						<a href="#sobre">Sobre</a>
-						<a href="#contato">Contato</a>
-					</nav>
-				</details>
-			</header>
+			<SiteHeader />
 			<main id="conteudo">
 			<section className="hero section-wrap" id="inicio">
 				<div className="hero-copy">
@@ -133,18 +66,16 @@ export default function Home() {
 						<span className="status-dot" /> RAFAEL HENTZ · DESENVOLVIMENTO DE SOFTWARE
 					</div>
 					<h1>
-						Sites feitos para o jeito que <span>sua empresa trabalha.</span>
+						Sua empresa merece <span>uma presença digital que abre portas.</span>
 					</h1>
 					<p className="hero-lede">
-						Crio sites rápidos, claros e sob medida — e, quando o projeto pede, conecto
-						a experiência a sistemas, dados e integrações.
+						Desenvolvimento de sites e soluções personalizadas com foco em clareza,
+						desempenho e uma experiência mais simples para seus clientes.
 					</p>
 					<div className="hero-actions">
-						<Button asChild className="button button-dark">
-							<a href="#contato">
-								Vamos conversar <ArrowRight size={16} />
-							</a>
-						</Button>
+						<a className="button button-dark" href={whatsappHref} target="_blank" rel="noreferrer">
+							<MessageCircle size={18} aria-hidden="true" /> Fale pelo WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
+						</a>
 						<a className="text-link" href="#projetos">
 							Ver projetos <ArrowDown size={15} />
 						</a>
@@ -232,13 +163,13 @@ export default function Home() {
 					<span className="strip-copy">Um ponto de contato para todo o seu projeto.</span>
 				</div>
 				<div className="strip-stack">
-					<span>WEB</span>
+					<span>SITES</span>
 					<b>·</b>
 					<span>MOBILE</span>
 					<b>·</b>
-					<span>BACKEND</span>
+					<span>SISTEMAS</span>
 					<b>·</b>
-					<span>CLOUD</span>
+					<span>NUVEM</span>
 				</div>
 			</section>
 
@@ -362,16 +293,16 @@ export default function Home() {
 						</p>
 					</div>
 					<div className="service-list">
-						{services.map(({ icon: Icon, title, description }, index) => (
-							<article className="service-row" key={title}>
+						{services.map(({ icon: Icon, title, cardDescription, slug }, index) => (
+							<a className="service-row" href={`/servicos/${slug}`} key={slug}>
 								<span className="service-number">0{index + 1}</span>
-								<span className="service-icon">
+								<span className="service-icon" aria-hidden="true">
 									<Icon size={21} strokeWidth={1.6} />
 								</span>
 								<h3>{title}</h3>
-								<p>{description}</p>
-								<ArrowUpRight className="service-arrow" size={18} />
-							</article>
+								<p>{cardDescription}</p>
+								<ArrowUpRight className="service-arrow" size={18} aria-hidden="true" />
+							</a>
 						))}
 					</div>
 				</div>
@@ -484,46 +415,16 @@ export default function Home() {
 						Me conte o que você está planejando. A gente começa entendendo o que faz
 						sentido para o seu negócio.
 					</p>
-					<Button asChild className="button button-light">
-						<a
-							href="https://www.linkedin.com/in/hentzrafael/"
-							target="_blank"
-							rel="noreferrer"
-						>
-							Converse pelo LinkedIn <ArrowUpRight size={16} />
-						</a>
-					</Button>
+					<a className="button button-light" href={whatsappHref} target="_blank" rel="noreferrer">
+						<MessageCircle size={18} aria-hidden="true" /> Fale comigo pelo WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
+					</a>
 					<span className="contact-orbit orbit-left" />
 					<span className="contact-orbit orbit-right" />
 					<span className="contact-star">✳</span>
 				</div>
 			</section>
 			</main>
-			<footer className="footer">
-				<a className="brand footer-brand" href="#inicio">
-					<span className="brand-mark">
-						h<span>.</span>
-					</span>
-					<span className="brand-name">
-						HENTZ <i>SERVIÇOS DE TI</i>
-					</span>
-				</a>
-				<span>Desenvolvimento de software com Rafael Hentz.</span>
-				<div className="footer-links">
-					<a href="https://github.com/hentzrafael" target="_blank" rel="noreferrer">
-						GitHub
-					</a>
-					<a
-						href="https://www.linkedin.com/in/hentzrafael/"
-						target="_blank"
-						rel="noreferrer"
-					>
-						LinkedIn
-					</a>
-					<a href="#inicio">Voltar ao topo ↑</a>
-				</div>
-				<small>© {new Date().getFullYear()} Hentz Serviços de TI</small>
-			</footer>
+			<SiteFooter />
 		</>
 	);
 }
