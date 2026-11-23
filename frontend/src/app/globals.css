@@ -509,21 +509,21 @@ p {
 	gap: 20px;
 }
 .strip-label {
-	font: 500 8px var(--mono);
-	letter-spacing: 1.2px;
-	color: #748078;
+	font: 500 14px/1.4 var(--mono);
+	letter-spacing: 0.5px;
+	color: #4d5952;
 }
 .strip-copy {
-	font-size: 11px;
+	font-size: 14px;
 	color: #4e5c55;
 }
 .strip-stack {
 	display: flex;
 	align-items: center;
 	gap: 18px;
-	font: 500 8px var(--mono);
-	letter-spacing: 1px;
-	color: #65726a;
+	font: 500 14px/1.4 var(--mono);
+	letter-spacing: 0.4px;
+	color: #4d5952;
 }
 .strip-stack b {
 	color: #92a67c;
@@ -880,7 +880,7 @@ p {
 }
 .step-index {
 	font: 12px var(--mono);
-	color: #97a198;
+	color: #515d56;
 	padding-top: 3px;
 }
 .step-marker {
@@ -1195,7 +1195,7 @@ p {
 		margin-left: auto;
 		margin-right: 15px;
 		padding: 11px 12px;
-		font-size: 10px;
+		font-size: 14px;
 	}
 	.mobile-menu {
 		display: block;
@@ -1227,7 +1227,7 @@ p {
 	}
 	.hero-note {
 		margin-top: 27px;
-		font-size: 9px;
+		font-size: 14px;
 	}
 	.hero-art {
 		height: 345px;
@@ -1267,13 +1267,13 @@ p {
 		margin-bottom: 8px;
 	}
 	.strip-copy {
-		font-size: 10px;
+		font-size: 14px;
 	}
 	.strip-stack {
 		margin-top: 18px;
 		justify-content: space-between;
 		gap: 4px;
-		font-size: 7px;
+		font-size: 14px;
 	}
 	.projects {
 		padding-top: 75px;
@@ -1457,21 +1457,16 @@ p {
 		font-size: 29px;
 	}
 	.brand-name {
-		font-size: 9px;
-		letter-spacing: 0.7px;
-	}
-	.brand-name i {
-		font-size: 7px;
-		letter-spacing: 0.3px;
+		display: none;
 	}
 	.nav-cta {
 		margin-right: 7px;
 		padding: 10px 8px;
-		font-size: 11px;
+		font-size: 14px;
 		gap: 4px;
 	}
 	.mobile-menu summary {
-		width: 40px;
+		width: 44px;
 		height: 44px;
 	}
 	.trust-strip {
@@ -1479,7 +1474,9 @@ p {
 		padding-left: 16px;
 	}
 	.strip-stack {
-		font-size: 8px;
+		gap: 3px;
+		font-size: 14px;
+		letter-spacing: 0;
 	}
 }
 @media (prefers-reduced-motion: reduce) {
