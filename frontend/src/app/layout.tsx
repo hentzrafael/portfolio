@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
 import "./globals.css";
 
 export const metadata: Metadata = {
-	title: "Portfólio",
-	description: "Portfólio de Rafael Hentz",
+	title: "Rafael Hentz — Sites e produtos digitais sob medida",
+	description: "Desenvolvimento de sites, aplicações e sistemas digitais com Rafael Hentz.",
+	metadataBase: new URL("https://hentzrafael.com"),
+	openGraph: {
+		title: "Rafael Hentz — Sites e produtos digitais sob medida",
+		description: "Sites e produtos digitais feitos para o jeito que sua empresa trabalha.",
+		locale: "pt_BR",
+		type: "website",
+	},
 };
-
-const fonte = Montserrat({
-	subsets: ["latin"],
-});
 
 export default function RootLayout({
 	children,
@@ -18,7 +20,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="pt-BR">
-			<body className={`${fonte.className}  antialiased`}>{children}</body>
+			<body className="antialiased">{children}</body>
 		</html>
 	);
 }
