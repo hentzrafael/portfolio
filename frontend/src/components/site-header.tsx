@@ -4,29 +4,29 @@ import { whatsappHref } from "@/lib/services";
 export function SiteHeader() {
 	return (
 		<>
-			<a className="skip-link" href="#conteudo">Pular para o conteúdo</a>
-			<header className="topbar">
-				<a className="brand" href="/" aria-label="Hentz, início">
-					<span className="brand-mark">h<span>.</span></span>
-					<span className="brand-name">HENTZ <i>SERVIÇOS DE TI</i></span>
-				</a>
-				<nav className="nav" aria-label="Navegação principal">
-					<a href="/#servicos">Serviços</a>
+			<a className="rd-skip-link" href="#conteudo">Pular para o conteúdo</a>
+			<header className="rd-wrap rd-header">
+				<a className="rd-brand" href="/#inicio" aria-label="Hentz, início">hentz<span aria-hidden="true" /></a>
+				<nav className="rd-nav" aria-label="Navegação principal">
 					<a href="/#projetos">Projetos</a>
-					<a href="/#processo">Como funciona</a>
+					<a href="/#servicos">Serviços</a>
+					<a href="/#processo">Processo</a>
 					<a href="/#sobre">Sobre</a>
 				</nav>
-				<a className="nav-cta" href={whatsappHref} target="_blank" rel="noreferrer">
-					<MessageCircle size={17} aria-hidden="true" /> WhatsApp <ArrowUpRight size={15} aria-hidden="true" />
-				</a>
-				<details className="mobile-menu">
+				<div className="rd-header-actions">
+					<span className="rd-language" lang="pt-BR">PT-BR</span>
+					<a className="rd-button rd-button-header" href={whatsappHref} target="_blank" rel="noreferrer" aria-label="Falar pelo WhatsApp">
+						<MessageCircle size={17} aria-hidden="true" /><span className="rd-header-label-long">Falar pelo WhatsApp</span><span className="rd-header-label-short" aria-hidden="true">WhatsApp</span> <ArrowUpRight size={15} aria-hidden="true" />
+					</a>
+				</div>
+				<details className="rd-mobile-menu">
 					<summary aria-label="Menu"><Menu size={21} aria-hidden="true" /></summary>
-					<nav className="mobile-nav-panel" aria-label="Navegação móvel">
-						<a href="/#servicos">Serviços</a>
+					<nav className="rd-mobile-panel" aria-label="Navegação móvel">
 						<a href="/#projetos">Projetos</a>
-						<a href="/#processo">Como funciona</a>
+						<a href="/#servicos">Serviços</a>
+						<a href="/#processo">Processo</a>
 						<a href="/#sobre">Sobre</a>
-						<a href={whatsappHref} target="_blank" rel="noreferrer">Fale pelo WhatsApp</a>
+						<a href={whatsappHref} target="_blank" rel="noreferrer">Falar pelo WhatsApp</a>
 					</nav>
 				</details>
 			</header>

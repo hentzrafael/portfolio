@@ -1,428 +1,188 @@
-import {
-	ArrowDown,
-	ArrowRight,
-	ArrowUpRight,
-	Check,
-	Github,
-	Linkedin,
-	MessageCircle,
-} from "lucide-react";
-import { SiteHeader } from "@/components/site-header";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, MessageCircle } from "lucide-react";
 import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { services, whatsappHref } from "@/lib/services";
 
 const projects = [
 	{
-		number: "01",
 		kind: "PROJETO PESSOAL",
 		title: "Finanças com mais clareza",
-		description:
-			"Aplicação pessoal para acompanhar contas corrente e poupança, registrar movimentações e transferir valores entre contas.",
+		description: "Aplicação pessoal para acompanhar contas corrente e poupança, registrar movimentações e transferir valores entre contas.",
 		stack: ["Next.js", "TypeScript", "Web app"],
-		mark: "saldo.",
-		visual: "finance",
 		href: "https://github.com/hentzrafael/piggy-bank",
+		art: "finance",
 	},
 	{
-		number: "02",
 		kind: "PESQUISA ACADÊMICA",
 		title: "Dados que revelam mudanças",
-		description:
-			"Pesquisa aplicada a imagens de satélite e visão computacional para estimar biomassa acima do solo.",
+		description: "Pesquisa aplicada a imagens de satélite e visão computacional para estimar biomassa acima do solo.",
 		stack: ["U-Net", "ViT", "Sensoriamento remoto"],
-		mark: "BIO / DATA",
-		visual: "earth",
 		href: "https://github.com/hentzrafael/unet-vit-carbon-estimate",
+		art: "biomass",
 	},
 	{
-		number: "03",
 		kind: "PESQUISA ACADÊMICA",
 		title: "Visão computacional em campo",
-		description:
-			"Projeto de pesquisa sobre detecção de mineração ilegal em imagens, usando classificação com ResNet50.",
+		description: "Projeto de pesquisa sobre detecção de mineração ilegal em imagens, usando classificação com ResNet50.",
 		stack: ["Python", "ResNet50", "Visão computacional"],
-		mark: "IMAGE\nANALYSIS",
-		visual: "vision",
 		href: "https://github.com/hentzrafael/resnet50-illegal-mining",
+		art: "vision",
 	},
 ];
 
-const steps = [
-	"Entendimento",
-	"Proposta e escopo",
-	"Design e desenvolvimento",
-	"Revisão e publicação",
-	"Acompanhamento",
+const processSteps = [
+	{ number: "01", title: "Entender", description: "Alinhamos seus objetivos, seu público e o que precisa funcionar." },
+	{ number: "02", title: "Desenhar o caminho", description: "Organizamos escopo, prioridades e uma proposta de solução." },
+	{ number: "03", title: "Construir e revisar", description: "Você acompanha a evolução e valida o produto durante o trabalho." },
+	{ number: "04", title: "Publicar e acompanhar", description: "Colocamos no ar e planejamos os próximos passos juntos." },
 ];
 
 export default function Home() {
+	const websiteService = services[0];
+	const customService = services[1];
+	const otherServices = services.slice(2);
+
 	return (
 		<>
 			<SiteHeader />
-			<main id="conteudo">
-			<section className="hero section-wrap" id="inicio">
-				<div className="hero-copy">
-					<div className="eyebrow">
-						<span className="status-dot" /> RAFAEL HENTZ · DESENVOLVIMENTO DE SOFTWARE
-					</div>
-					<h1>
-						Sua empresa merece <span>uma presença digital que abre portas.</span>
-					</h1>
-					<p className="hero-lede">
-						Desenvolvimento de sites e soluções personalizadas com foco em clareza,
-						desempenho e uma experiência mais simples para seus clientes.
-					</p>
-					<div className="hero-actions">
-						<a className="button button-dark" href={whatsappHref} target="_blank" rel="noreferrer">
-							<MessageCircle size={18} aria-hidden="true" /> Fale pelo WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
-						</a>
-						<a className="text-link" href="#projetos">
-							Ver projetos <ArrowDown size={15} />
-						</a>
-					</div>
-					<div className="hero-note">
-						<span className="note-line" /> Uma parceria direta, do primeiro rascunho à
-						publicação.
-					</div>
-				</div>
-				<div className="hero-art" aria-hidden="true">
-					<div className="art-orbit orbit-one" />
-					<div className="art-orbit orbit-two" />
-					<div className="art-glow" />
-					<div className="browser-card">
-						<div className="browser-top">
-							<div className="browser-dots">
-								<i />
-								<i />
-								<i />
-							</div>
-							<span>seunegocio.com.br</span>
-							<span className="browser-lock">⌑</span>
-						</div>
-						<div className="browser-body">
-							<div className="mock-nav">
-								<b>
-									marca<span>.</span>
-								</b>
-								<div>
-									<i />
-									<i />
-									<i />
-								</div>
-								<em>Fale com a gente ↗</em>
-							</div>
-							<div className="mock-content">
-								<small>UMA NOVA FORMA DE FAZER</small>
-								<strong>
-									Ideias boas
-									<br />
-									merecem espaço.
-								</strong>
-								<p>
-									Experiências digitais para
-									<br />
-									negócios em movimento.
-								</p>
-								<span className="mock-button">
-									Conheça nosso trabalho <ArrowRight size={12} />
-								</span>
-							</div>
-							<div className="mock-side">
-								<div className="mock-tile tile-a" />
-								<div className="mock-tile tile-b" />
-								<div className="mock-tile tile-c" />
-							</div>
-							<span className="mock-caption">
-								DESIGN COM INTENÇÃO · TECNOLOGIA QUE FUNCIONA
-							</span>
-						</div>
-					</div>
-					<div className="floating-tag tag-top">
-						<span>✳</span> pensado para pessoas
-					</div>
-					<div className="floating-tag tag-bottom">
-						<div className="tag-icon">
-							<Check size={15} />
-						</div>
-						<div>
-							<b>Leve e responsivo</b>
-							<small>em cada tamanho de tela</small>
-						</div>
-					</div>
-					<div className="art-stamp">
-						RH
-						<br />
-						<i>01—25</i>
-					</div>
-				</div>
-			</section>
-
-			<section className="trust-strip">
-				<div>
-					<span className="strip-label">DA IDEIA AO PRODUTO</span>
-					<span className="strip-copy">Um ponto de contato para todo o seu projeto.</span>
-				</div>
-				<div className="strip-stack">
-					<span>SITES</span>
-					<b>·</b>
-					<span>MOBILE</span>
-					<b>·</b>
-					<span>SISTEMAS</span>
-					<b>·</b>
-					<span>NUVEM</span>
-				</div>
-			</section>
-
-			<section className="projects section-wrap" id="projetos">
-				<div className="section-heading">
-					<div>
-						<div className="eyebrow">TRABALHOS SELECIONADOS</div>
-						<h2>
-							Ideias em <span>movimento.</span>
-						</h2>
-					</div>
-					<p>
-						Uma amostra de projetos pessoais e pesquisa. Em cada trabalho, tecnologia é
-						o meio para responder a uma pergunta real.
-					</p>
-				</div>
-				<div className="project-grid">
-					{projects.map((project) => (
-						<article className="project-card" key={project.number}>
-							<div
-								className={`project-visual ${project.visual}`}
-								aria-hidden="true"
-							>
-								<div className="project-visual-top">
-									<span>{project.kind}</span>
-									<span>VISUAL ILUSTRATIVO</span>
-								</div>
-								{project.visual === "finance" ? (
-									<div className="finance-ui">
-										<div className="finance-head">
-											<span className="finance-logo">
-												saldo<span>.</span>
-											</span>
-											<span className="avatar">RH</span>
-										</div>
-										<div className="finance-label">
-											SALDO TOTAL <span>•••</span>
-										</div>
-										<div className="finance-value">R$ ••••</div>
-										<div className="finance-bars">
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-											<i />
-										</div>
-										<div className="finance-foot">
-											<span>Conta corrente</span>
-											<span>Poupança</span>
-										</div>
-									</div>
-								) : (
-									<div className="research-ui">
-										<div className="research-ring ring-outer" />
-										<div className="research-ring ring-inner" />
-										<div className="research-core">
-											{project.mark.split("\n").map((line) => (
-												<span key={line}>{line}</span>
-											))}
-										</div>
-										<span className="research-label label-one">
-											SATELLITE / 2024
-										</span>
-										<span className="research-label label-two">
-											MODEL · v1.0
-										</span>
-										<span className="research-label label-three">
-											{project.visual === "earth" ? "GEO / 04" : "IMG / 50"}
-										</span>
-									</div>
-								)}
-							</div>
-							<div className="project-meta">
-								<span>{project.kind}</span>
-								<span>{project.number}</span>
-							</div>
-							<h3>{project.title}</h3>
-							<p>{project.description}</p>
-							<div className="tag-list">
-								{project.stack.map((tag) => (
-									<span key={tag}>{tag}</span>
-								))}
-							</div>
-							<a
-								className="project-link"
-								href={project.href}
-								target="_blank"
-								rel="noreferrer"
-							>
-								Ver repositório <ArrowUpRight size={13} />
+			<main id="conteudo" className="rd-main">
+				<section className="rd-wrap rd-hero" id="inicio">
+					<div className="rd-hero-copy">
+						<div className="rd-eyebrow">HENTZ SERVIÇOS DE TI · RAFAEL HENTZ</div>
+						<h1>Seu próximo site pode fazer mais pelo seu negócio.</h1>
+						<p>Crio sites rápidos, claros e sob medida — e conecto a experiência aos sistemas que sua empresa já usa.</p>
+						<div className="rd-actions">
+							<a className="rd-button rd-button-lime" href={whatsappHref} target="_blank" rel="noreferrer">
+								Conversar sobre meu projeto <ArrowUpRight size={17} aria-hidden="true" />
 							</a>
-						</article>
-					))}
-				</div>
-				<p className="project-disclaimer">
-					Projetos pessoais e de pesquisa — não representam trabalhos realizados para
-					clientes da Hentz Serviços de TI.
-				</p>
-			</section>
-
-			<section className="services-section" id="servicos">
-				<div className="services section-wrap">
-					<div className="section-heading">
-						<div>
-							<div className="eyebrow">O QUE POSSO FAZER</div>
-							<h2>
-								Do primeiro clique ao <span>produto completo.</span>
-							</h2>
+							<a className="rd-button rd-button-outline" href="#projetos">Explorar trabalhos <ArrowDownRight size={17} aria-hidden="true" /></a>
 						</div>
-						<p>
-							Você fala direto com quem planeja e desenvolve. O escopo acompanha a
-							necessidade real do seu negócio.
-						</p>
+						<div className="rd-proof-line">Contato direto <span>·</span> Escopo claro <span>·</span> Código feito para evoluir</div>
 					</div>
-					<div className="service-list">
-						{services.map(({ icon: Icon, title, cardDescription, slug }, index) => (
-							<a className="service-row" href={`/servicos/${slug}`} key={slug}>
-								<span className="service-number">0{index + 1}</span>
-								<span className="service-icon" aria-hidden="true">
-									<Icon size={21} strokeWidth={1.6} />
-								</span>
-								<h3>{title}</h3>
-								<p>{cardDescription}</p>
-								<ArrowUpRight className="service-arrow" size={18} aria-hidden="true" />
-							</a>
+					<div className="rd-hero-visual" aria-hidden="true">
+						<div className="rd-hero-orbit" />
+						<div className="rd-annotation">feito sob medida</div>
+						<div className="rd-browser">
+							<div className="rd-browser-bar"><i /><i /><i /><span /></div>
+							<div className="rd-mock-nav"><b>CASA NORTE</b><span>SOLUÇÕES&nbsp;&nbsp; SOBRE&nbsp;&nbsp; CONTATO</span></div>
+							<div className="rd-mock-body">
+								<div className="rd-mock-copy">
+									<small>PROJETOS PARA SUA CASA</small>
+									<strong>Mais espaço para viver bem.</strong>
+									<p>Um jeito simples de encontrar a solução certa para o seu próximo projeto.</p>
+									<b>Conheça nossos serviços <ArrowRight size={11} /></b>
+								</div>
+								<div className="rd-mock-image" />
+							</div>
+						</div>
+						<div className="rd-integration-chip">↗ Integrações <span>site · agenda · CRM</span></div>
+					</div>
+				</section>
+
+				<section className="rd-wrap rd-trust" aria-label="Como é trabalhar com Rafael">
+					<strong>Da primeira conversa à publicação</strong>
+					<div><b>01</b> Escopo transparente</div>
+					<div><b>02</b> Acompanhamento próximo</div>
+					<div><b>03</b> Base pronta para crescer</div>
+				</section>
+
+				<section id="projetos" className="rd-wrap rd-section">
+					<div className="rd-section-head">
+						<h2>Projetos com contexto,<br />não só telas.</h2>
+						<p>Trabalhos pessoais e de pesquisa mostram como penso e construo. Projetos de clientes entram aqui quando houver autorização.</p>
+					</div>
+					<div className="rd-work-grid">
+						{projects.map((project, index) => (
+							<article className={`rd-work-card ${index === 0 ? "rd-work-feature" : ""}`} key={project.title}>
+								<div className={`rd-work-art rd-art-${project.art}`} aria-hidden="true">
+									<span className="rd-project-badge">{project.kind}</span>
+									{project.art === "finance" ? (
+										<div className="rd-finance-ui">
+											<div className="rd-finance-top"><span>minhas finanças</span><span>•••</span></div>
+											<div className="rd-finance-balance">Saldo disponível<strong>R$ ••••</strong></div>
+											<div className="rd-finance-bars"><i /><i /><i /><i /><i /><i /></div>
+										</div>
+									) : <div className="rd-research-shape"><i /><i /><i /></div>}
+								</div>
+								<div className="rd-work-copy">
+									<span className="rd-work-kind">{project.kind}</span>
+									<h3>{project.title}</h3>
+									<p>{project.description}</p>
+									<div className="rd-stack">{project.stack.map((item) => <span key={item}>{item}</span>)}</div>
+									<a className="rd-text-link" href={project.href} target="_blank" rel="noreferrer">Ver no GitHub <ArrowUpRight size={15} aria-hidden="true" /></a>
+								</div>
+							</article>
 						))}
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<section className="process section-wrap" id="processo">
-				<div className="process-intro">
-					<div className="eyebrow">UM CAMINHO CLARO</div>
-					<h2>
-						Boas entregas começam com <span>boas conversas.</span>
-					</h2>
-					<p>
-						Você acompanha o projeto com escopo definido e atualizações ao longo do
-						caminho — sem surpresas no final.
-					</p>
-					<a className="text-link" href="#contato">
-						Conte sua ideia <ArrowRight size={15} />
-					</a>
-				</div>
-				<div className="process-steps">
-					{steps.map((step, index) => (
-						<div className="process-step" key={step}>
-							<span className="step-index">0{index + 1}</span>
-							<div className="step-marker">
-								<span />
-							</div>
-							<div className="step-content">
-								<h3>{step}</h3>
-								<p>
-									{
-										[
-											"Entendo o momento do negócio, as pessoas e o que precisa mudar.",
-											"Alinhamos entregas, prioridades e o que faz parte do projeto.",
-											"Construo a solução com decisões compartilhadas e progresso visível.",
-											"Ajustamos os detalhes, validamos e colocamos o projeto no ar.",
-											"Fico por perto para apoiar os próximos passos e melhorias.",
-										][index]
-									}
-								</p>
-							</div>
+				<section id="servicos" className="rd-services">
+					<div className="rd-wrap rd-section">
+						<div className="rd-section-head">
+							<h2>Da presença digital<br />ao produto completo.</h2>
+							<p>Comece pelo que seu negócio precisa agora. A solução pode crescer junto com ele.</p>
 						</div>
-					))}
-				</div>
-			</section>
-
-			<section className="about-section" id="sobre">
-				<div className="about section-wrap">
-					<div className="about-visual" aria-hidden="true">
-						<div className="portrait-frame">
-							<div className="portrait-sun" />
-							<div className="portrait-letters">
-								RH<span>.</span>
-							</div>
-							<div className="portrait-caption">
-								CONSTRUINDO COM CUIDADO
-								<br />E CURIOSIDADE.
-							</div>
-							<div className="portrait-cross">+</div>
-						</div>
-						<div className="about-side-note">
-							UM PROJETO DE CADA VEZ <span>↗</span>
-						</div>
-					</div>
-					<div className="about-copy">
-						<div className="eyebrow">QUEM ESTÁ POR TRÁS</div>
-						<h2>
-							Oi, eu sou o <span>Rafael.</span>
-						</h2>
-						<p>
-							Sou engenheiro de software e trabalho diretamente com cada cliente para
-							transformar necessidades em produtos digitais confiáveis — cuidando do
-							detalhe técnico e da experiência de quem vai usar.
-						</p>
-						<p>
-							Atuo em português e inglês, colaborando de perto em cada etapa para que
-							a solução faça sentido para as pessoas e para o negócio.
-						</p>
-						<div className="about-links">
-							<a
-								href="https://github.com/hentzrafael"
-								target="_blank"
-								rel="noreferrer"
-							>
-								<Github size={17} /> GitHub <ArrowUpRight size={13} />
+						<div className="rd-service-feature-grid">
+							<a className="rd-service-primary" href={`/servicos/${websiteService.slug}`}>
+								<div>
+									<div className="rd-service-number">01 / PRINCIPAL SERVIÇO</div>
+									<h3>{websiteService.title}</h3>
+									<p>Um site profissional, rápido e fácil de entender — pensado para apresentar seu negócio e facilitar o próximo contato.</p>
+									<div className="rd-deliverables"><span>Estrutura e conteúdo</span><span>Design responsivo</span><span>SEO essencial</span></div>
+								</div>
+									<strong>Conhecer criação de sites <ArrowRight size={17} aria-hidden="true" /></strong>
 							</a>
-							<a
-								href="https://www.linkedin.com/in/hentzrafael/"
-								target="_blank"
-								rel="noreferrer"
-							>
-								<Linkedin size={17} /> LinkedIn <ArrowUpRight size={13} />
+							<a className="rd-service-secondary" href={`/servicos/${customService.slug}`}>
+								<div>
+									<div className="rd-service-number">02 / SOLUÇÕES SOB MEDIDA</div>
+									<h3>{customService.title}</h3>
+									<p>Aplicações, APIs e integrações para simplificar processos e conectar as ferramentas que você já usa.</p>
+								</div>
+								<strong>Conhecer desenvolvimento <ArrowRight size={17} aria-hidden="true" /></strong>
 							</a>
 						</div>
-						<div className="about-signature">
-							Rafael Hentz <span>DESENVOLVEDOR · BRASIL</span>
+						<nav className="rd-mini-services" aria-label="Outros serviços">
+							{otherServices.map(({ slug, title, cardDescription }) => (
+								<a href={`/servicos/${slug}`} key={slug}>{title}<span>{cardDescription}</span><ArrowUpRight size={17} aria-hidden="true" /></a>
+							))}
+						</nav>
+					</div>
+				</section>
+
+				<section id="processo" className="rd-wrap rd-section">
+					<div className="rd-section-head">
+						<h2>Um caminho claro,<br />do começo à evolução.</h2>
+						<p>Você acompanha as decisões e o progresso em cada etapa.</p>
+					</div>
+					<div className="rd-process">
+						{processSteps.map((step) => <article className="rd-step" key={step.number}>
+							<span>{step.number}</span><h3>{step.title}</h3><p>{step.description}</p>
+						</article>)}
+					</div>
+				</section>
+
+				<section id="sobre" className="rd-about">
+					<div className="rd-wrap rd-about-grid">
+						<div className="rd-monogram" aria-hidden="true">RH</div>
+						<div className="rd-about-copy">
+							<div className="rd-eyebrow rd-eyebrow-green">SOBRE RAFAEL</div>
+							<h2>Tecnologia boa deixa o trabalho mais simples.</h2>
+							<p>Sou Rafael Hentz, engenheiro de software. Trabalho diretamente com cada cliente para transformar necessidades reais em produtos digitais confiáveis — com atenção à experiência e aos detalhes técnicos.</p>
+							<div className="rd-about-links">
+								<a href="https://github.com/hentzrafael" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={15} aria-hidden="true" /></a>
+								<a href="https://www.linkedin.com/in/hentzrafael/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={15} aria-hidden="true" /></a>
+							</div>
 						</div>
 					</div>
-				</div>
-			</section>
+				</section>
 
-			<section className="contact section-wrap" id="contato">
-				<div className="contact-grid">
-					<div className="eyebrow">
-						<span className="status-dot" /> TEM UM PROJETO EM MENTE?
+				<section id="contato" className="rd-wrap rd-contact">
+					<div><h2>Tem um projeto em mente?</h2><p>Me conte o que sua empresa precisa resolver.</p></div>
+					<div className="rd-contact-actions">
+						<a className="rd-button rd-button-lime" href={whatsappHref} target="_blank" rel="noreferrer"><MessageCircle size={18} aria-hidden="true" /> Conversar pelo WhatsApp <ArrowUpRight size={16} aria-hidden="true" /></a>
+						<a className="rd-contact-link" href="https://www.linkedin.com/in/hentzrafael/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={15} aria-hidden="true" /></a>
 					</div>
-					<h2>
-						Vamos tirar sua ideia <span>do papel.</span>
-					</h2>
-					<p>
-						Me conte o que você está planejando. A gente começa entendendo o que faz
-						sentido para o seu negócio.
-					</p>
-					<a className="button button-light" href={whatsappHref} target="_blank" rel="noreferrer">
-						<MessageCircle size={18} aria-hidden="true" /> Fale comigo pelo WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
-					</a>
-					<span className="contact-orbit orbit-left" />
-					<span className="contact-orbit orbit-right" />
-					<span className="contact-star">✳</span>
-				</div>
-			</section>
+				</section>
 			</main>
 			<SiteFooter />
 		</>
